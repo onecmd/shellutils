@@ -15,6 +15,7 @@ Shell utils library, include:
   - Docker
   - NPM
 - Install|Uninstall software by one command, resolve proxies and dependencies issue automatically, select fast mirrors automatically
+  - jq
   - Docker
   - Java
   - Golang
@@ -61,6 +62,7 @@ error "Not found Openstack lab vars file: /opt/oneshell/runtime/lab_vars.sh!"
 Then can use the env variables which defined in properties file.
 
 #### Load json variables to env
+recondition: install jq: https://stedolan.github.io/jq/ .
 - Json file format like:
 ```
 {
