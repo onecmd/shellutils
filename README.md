@@ -44,6 +44,7 @@ info "Start to create configuration..."
 info "check_env_parameters..."
 warn "LAB_ID not set, use default."
 error "Not found Openstack lab vars file: /opt/oneshell/runtime/lab_vars.sh!"
+log_file /tmp/example.properties
 ```
 - Logs output example:
 ```
@@ -51,6 +52,10 @@ error "Not found Openstack lab vars file: /opt/oneshell/runtime/lab_vars.sh!"
 2020-08-24 03:17:07 | /opt/oneshell/main.sh | INFO | check_env_parameters...
 2020-08-24 03:17:07 | /opt/oneshell/main.sh | WARN | LAB_ID not set, use default.
 2020-08-24 03:17:07 | /opt/oneshell/main.sh | ERROR | Not found Openstack lab vars file: /opt/oneshell/runtime/lab_vars.sh!
+2020-08-24 03:17:06 | /opt/oneshell/main.sh | INFO | cat /tmp/example.properties
+var_a=a
+var_b=b
+var_c=c
 ```
 
 ### Load file variables to env variables
@@ -62,7 +67,7 @@ error "Not found Openstack lab vars file: /opt/oneshell/runtime/lab_vars.sh!"
 Then can use the env variables which defined in properties file.
 
 #### Load json variables to env
-recondition: install jq: https://stedolan.github.io/jq/ .
+Precondition: install jq: https://stedolan.github.io/jq/ .
 - Json file format like:
 ```
 {
