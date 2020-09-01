@@ -101,13 +101,21 @@ sh /opt/shellutils/proxies/yum.sh set|unset [proxy]
 ```
 
 #### Set|unset proxy for docker
+Precondition: docker installed
 ```
 sh /opt/shellutils/proxies/docker.sh set|unset [proxy]
 ```
 
 #### Set|unset proxy for npm
+Precondition: npm installed
 ```
 sh /opt/shellutils/proxies/npm.sh set|unset [proxy]
+```
+
+#### Set|unset proxy for git
+Precondition: git installed
+```
+sh /opt/shellutils/proxies/git.sh set|unset [proxy]
 ```
 
 ### Install services
