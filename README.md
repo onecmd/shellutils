@@ -15,7 +15,7 @@ Shell utils library, include:
   - Docker
   - NPM
   - Git
-- Install|Uninstall software by one command, resolve proxies and dependencies issue automatically, select fast mirrors automatically
+- Install|Uninstall software by one command, resolve proxies and dependencies issue automatically, select fast mirrors automatically. Support CentOS, Ubuntu, Debian linux releases.
   - jq
   - Docker
   - Java
@@ -120,7 +120,7 @@ sh /opt/shellutils/proxies/git.sh set|unset [proxy]
 ```
 
 ### Install services
-Install|Uninstall software by one command, resolve proxies and dependencies issue automatically, select fast mirrors automatically. Supported CentOS, Ubuntu, Debian linux releases.
+Install|Uninstall software by one command, resolve proxies and dependencies issue automatically, select fast mirrors automatically. Support CentOS, Ubuntu, Debian linux releases.
 
 #### Install jq
 jq used for json parse in shell.
