@@ -22,14 +22,22 @@ if [ "X${ACTION}" == "Xset" ]; then
     proxy=$2
     exportProxiesVariables ${proxy}
 
-    npm config set proxy=${HTTP_PROXY_VALUE}
-    npm config set https-proxy=${HTTPS_PROXY_VALUE}
+    export HTTP_PROXY=${HTTP_PROXY_VALUE}
+    export http_proxy=${HTTP_PROXY_VALUE}
+
+    export HTTPS_PROXY=${HTTPS_PROXY_VALUE}
+    export https_proxy=${HTTPS_PROXY_VALUE}
+
+    export NO_PROXY=${NO_PROXY_VALUE}
+    export no_proxy=${NO_PROXY_VALUE}
+
+    console "Set done"
 
 elif [ "X${ACTION}" == "Xunset" ]; then
     info "Unset proxies..."
+    unset HTTP_PROXY HTTPS_PROXY NO_PROXY http_proxy https_proxy no_proxy
 
-    npm config delete proxy
-    npm config delete https-proxy
+    console "Unset done"
 else
     error "Invalid parameters!"
     usage

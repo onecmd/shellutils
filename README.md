@@ -29,6 +29,7 @@ Shell utils library, include:
   - node_exporter
 
 ## Usage example
+Download or unzip the library to /opt, eg. /opt/shellutils, then run the command.
 
 ### Pretty logs
 Log logs to file: /var/log/shellutils.log
@@ -36,7 +37,7 @@ Log logs to file: /var/log/shellutils.log
 #### Usage
 - Import pretty logs library in script:
 ```
-. ${SCRIPT_ROOT_PATH}/shellutils/logs/pretty_logs.sh
+. /opt/shellutils/logs/pretty_logs.sh
 ```
 - Print logs:
 ```
@@ -52,7 +53,7 @@ log_file /tmp/example.properties
 2020-08-24 03:17:07 | /opt/oneshell/main.sh | INFO | check_env_parameters...
 2020-08-24 03:17:07 | /opt/oneshell/main.sh | WARN | LAB_ID not set, use default.
 2020-08-24 03:17:07 | /opt/oneshell/main.sh | ERROR | Not found Openstack lab vars file: /opt/oneshell/runtime/lab_vars.sh!
-2020-08-24 03:17:06 | /opt/oneshell/main.sh | INFO | cat /tmp/example.properties
+2020-08-24 03:17:07 | /opt/oneshell/main.sh | INFO | cat /tmp/example.properties
 var_a=a
 var_b=b
 var_c=c
@@ -62,7 +63,7 @@ var_c=c
 #### Load properties variables to env
 - Use command:
 ```
-. ${SCRIPT_ROOT_PATH}/shellutils/env/load_properties_to_env.sh {properties file path}
+. /opt/shellutils/env/load_properties_to_env.sh {properties file path}
 ```
 Then can use the env variables which defined in properties file.
 
@@ -77,34 +78,58 @@ Precondition: install jq: https://stedolan.github.io/jq/ .
 ```
 - Load json variables to env:
 ```
-. ${SCRIPT_ROOT_PATH}/shellutils/env/load_json_to_env.sh {json file path}
+sh /opt/shellutils/env/load_json_to_env.sh {json file path}
 ```
 Then can use the env variables which defined in json file.
 
 ### Set|Unset proxies
-Set proxy in file: ${SCRIPT_ROOT_PATH}/shellutils/proxies/config/proxies_config.properties
+Set proxy in file: /opt/shellutils/proxies/config/proxies_config.properties
 
 #### Set|unset proxy for system
 ```
-. ${SCRIPT_ROOT_PATH}/shellutils/proxies/set_system_proxy.sh set|unset [proxy]
+sh /opt/shellutils/proxies/system.sh set|unset [proxy]
 ```
 
 #### Set|unset proxy for env
 ```
-. ${SCRIPT_ROOT_PATH}/shellutils/proxies/set_env_proxy.sh set|unset [proxy]
+sh /opt/shellutils/proxies/env.sh set|unset [proxy]
 ```
 
 #### Set|unset proxy for yum
 ```
-. ${SCRIPT_ROOT_PATH}/shellutils/proxies/set_yum_proxy.sh set|unset [proxy]
+sh /opt/shellutils/proxies/yum.sh set|unset [proxy]
 ```
 
 #### Set|unset proxy for docker
 ```
-. ${SCRIPT_ROOT_PATH}/shellutils/proxies/set_docker_proxy.sh set|unset [proxy]
+sh /opt/shellutils/proxies/docker.sh set|unset [proxy]
 ```
 
 #### Set|unset proxy for npm
 ```
-. ${SCRIPT_ROOT_PATH}/shellutils/proxies/set_npm_proxy.sh set|unset [proxy]
+sh /opt/shellutils/proxies/npm.sh set|unset [proxy]
+```
+
+### Install services
+Install|Uninstall software by one command, resolve proxies and dependencies issue automatically, select fast mirrors automatically. Supported CentOS, Ubuntu, Debian linux releases.
+
+#### Install jq
+jq used for json parse in shell.
+- Run command to install jq:
+```
+sh /opt/shellutils/install/jq.sh install
+```
+- Run command to uninstall jq:
+```
+sh /opt/shellutils/install/jq.sh uninstall
+```
+
+#### Install docker
+- Run command to install docker:
+```
+sh /opt/shellutils/install/docker.sh install
+```
+- Run command to uninstall docker:
+```
+sh /opt/shellutils/install/docker.sh uninstall
 ```

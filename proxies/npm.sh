@@ -22,19 +22,18 @@ if [ "X${ACTION}" == "Xset" ]; then
     proxy=$2
     exportProxiesVariables ${proxy}
 
-    cat > /etc/profile.d/shellutils_proxy.sh << EOF
-export https_proxy=${HTTPS_PROXY_VALUE}
-export http_proxy=${HTTP_PROXY_VALUE}
-export no_proxy=${NO_PROXY_VALUE}
+    npm config set proxy=${HTTP_PROXY_VALUE}
+    npm config set https-proxy=${HTTPS_PROXY_VALUE}
 
-export HTTPS_PROXY=${https_proxy}
-export HTTP_PROXY=${http_proxy}
-export NO_PROXY=${no_proxy}
-EOF
+    console "Set done"
 
 elif [ "X${ACTION}" == "Xunset" ]; then
     info "Unset proxies..."
-    rm -rf /etc/profile.d/shellutils_proxy.sh
+
+    npm config delete proxy
+    npm config delete https-proxy
+
+    console "Unset done"
 else
     error "Invalid parameters!"
     usage

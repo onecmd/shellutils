@@ -25,9 +25,13 @@ if [ "X${ACTION}" == "Xset" ]; then
     sed -i '/proxy=.*/d' /etc/yum.conf
     echo "proxy=${HTTP_PROXY_VALUE}" >> /etc/yum.conf
 
+    console "Set done"
+
 elif [ "X${ACTION}" == "Xunset" ]; then
     info "Unset proxies..."
     sed -i '/proxy=.*/d' /etc/yum.conf
+
+    console "Unset done"
 else
     error "Invalid parameters!"
     usage
