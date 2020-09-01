@@ -14,6 +14,7 @@ Shell utils library, include:
   - YUM
   - Docker
   - NPM
+  - Git
 - Install|Uninstall software by one command, resolve proxies and dependencies issue automatically, select fast mirrors automatically
   - jq
   - Docker
